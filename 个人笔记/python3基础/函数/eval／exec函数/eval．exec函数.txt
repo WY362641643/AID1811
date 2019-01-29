@@ -1,0 +1,26 @@
+
+eval 和 exec 函数
+eval 函数:
+  作用:
+    把一个字符串当成一个表达式来执行,返回表达式执行后的结果
+  格式:
+    eval(source, global=None, local=None)
+  参数:
+    source 用于执行的表达式字符串
+    global 用于描述source执行的全局变量环境的字典
+    local  用于描述source执行的局部变量环境的字典
+  示例见:
+    eval.py
+
+
+exec 函数
+  作用:
+    把一个字符串当成程序来执行
+  格式:
+    exec(source, global=None, local=None)
+  参数:
+    source 用于执行的语句的字符串
+    global 用于描述source执行的全局变量环境的字典
+    local  用于描述source执行的局部变量环境的字典
+  示例见:
+    exec.py

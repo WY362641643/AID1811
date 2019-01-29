@@ -1,0 +1,21 @@
+
+线程 Event 
+
+        from threading import Event
+
+	e = Event()
+	功能 ：创建Event对象
+
+	e.wait([timeout])
+	功能： 阻塞函数，等待e被set
+	参数： 超时时间
+
+	e.set()
+	功能： 设置e的状态为 set状态
+
+	e.clear()
+	功能 ： 将e变回未设置的状态
+
+	e.is_set()
+	功能： 判断e的当前状态
+	返回值：被设置返回True，未被设置返回False

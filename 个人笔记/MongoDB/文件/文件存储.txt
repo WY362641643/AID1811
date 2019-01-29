@@ -1,0 +1,54 @@
+
+文件存储
+
+    文件存储数据库方式
+
+    1. 存储路径 ： 将本地文件所在的路径以字符串存储
+                    到数据库中。
+       优点： 节省数据库空间，从数据库获取存储比较简单
+       缺点： 当数据库或者文件发生变动时必须修改数据库存储内容
+
+    2. 存储文件本身： 将文件转换为二进制存储到数据库
+
+       优点： 文件随数据库移动，数据在文件即在
+       缺点： 占用数据库空间大，存取效率低
+
+
+GridFS文件存储方案
+
+    目的：更好的帮助存储MongoDB中超过16M的大文件
+
+    方案解释：在mongodb数据库中创建两个集合，
+            共同存储文件。一个存储文件信息，
+            一个存储文件内容。两个集合相互配合。
+
+
+     fs.files : 存储文件信息（文件名，大小等）
+	 fs.chunks: 以二进制存储文件内容
+
+
+存储方法：mongodbfiles -d  dbname  put  file
+                          数据库       要存的文件
+
+
+     e.g. 将img.jpg 存储到 grid数据库
+          mongofiles -d grid put ./img.jpg
+
+获取方法：mongofiles -d  dbname  get  file
+
+      * file 必须是fs.files中 filename值
+
+	 e.g. 从数据库中获取文件
+	      mongofiles -d grid get ./img.jpg
+
+
+    优缺点 ：
+         优点： 存储方便，提供了较好的命令，方便数据
+              库移动
+
+	     缺点： 读写效率低，不建议存储小文件
+
+
+mongo shell 对 JavaScript支持
+
+    在mongo shell下可以直接运行JS代码

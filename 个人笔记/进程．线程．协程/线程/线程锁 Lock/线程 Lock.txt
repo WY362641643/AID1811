@@ -1,0 +1,14 @@
+ 线程锁 Lock
+
+	from threading import Lock
+
+	lock = Lock()  创建锁对象
+
+	lock.acquire()  上锁 如果重复上锁会阻塞
+
+	lock.release()  解锁
+
+	with  lock： ---》上锁
+	   临界区代码
+	      
+	             ---》 with代码块结束自动解锁

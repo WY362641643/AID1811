@@ -1,0 +1,10 @@
+
+tcp和udp套接字编程差异
+
+    1. 流式套接字是以字节流的方式传输数据，数据报套接字则 
+    以数据报方式传输
+    2. tcp套接字会有粘包，但是udp套接字有消息边界不会粘包
+    3. tcp套接字保证传输的可靠性，udp套接字无法保证
+    4. tcp套接字使用listen accpet进行连接，udp则不需要
+    5. tcp套接字使用recv，send收发消息，udp则用recvfrom，
+          sendto

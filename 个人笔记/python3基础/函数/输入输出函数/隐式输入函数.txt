@@ -1,0 +1,5 @@
+
+import getpass
+
+passwd = getpass.getpass()
+功能： 隐式的输入密码

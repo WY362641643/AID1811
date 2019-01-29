@@ -1,0 +1,70 @@
+
+
+try 语名的两种语法
+  try-except 语句
+  try-finally 语句
+
+try-except 语句的语法
+  try:
+      可能触发异常的语句
+  except 错误类型1 [as 变量1]:
+      异常处理语句1
+  except 错误类型2 [as 变量2]:
+      异常处理语句2
+  except (错误类型3, 错误类型4) [as 变量3]
+      异常处理语句3
+  ...
+  except:
+      异常处理语句other
+  else:
+      未发生异常的语句(此语句在末发生异常时执行)
+  finally:
+      最终语句(此语句在离开try时一定会被执行)
+
+作用:
+  偿式捕获异常,得到错错误类型4误通知,将程序由异常流程转为正常流程并继
+  续执行
+说明:
+  as 子句是用于绑定错误对象的变量, 可以省略
+  except 子句可以有一个或多个,但至少要有一个
+  else 子句最多只能有一个,也可以省略不写
+  finally 子句最多只能有一个.也可以省略不写
+示例见:
+  try_except.py
+  try_except2.py
+  try_except3.py
+  try_except4.py
+  try_except5.py
+  try_except6.py
+
+
+
+try-finally 语句
+  语法:
+    try:
+        可能触发异常的语句
+    finally:
+        最终语句
+  说明:
+    finally 子句不可以省略
+    一定不存在except子句
+  作用:
+    通常用try-finally语句来执行触发异常时一定要执行的语句,
+      无论异常是否发生,finally 子句都会被执行
+    try-finally 语句不会改变程序的(正常/异常)状态
+  示例见:
+
+    try_finally.py
+
+
+    
+练习:
+  写一个函数 get_score() 获取学生的成绩(0~100中的整数),
+  如果用户输入的成绩不是0~100之间的数,则返回0
+    如:
+      def get_score():
+          s = input("请输入成绩(0~100): ")
+          ...
+
+      score = get_score()
+      print("学生的成绩是:" score)

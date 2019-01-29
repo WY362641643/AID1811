@@ -1,0 +1,78 @@
+修改操作
+
+mysql：update  table set ... where ...
+
+mongo:
+修改操作
+
+   updateOne()  修改一个文档
+   updateMany() 修改所有筛选文档
+   update()
+   findOneAndUpdate() 查找一个文档并修改
+   findOneAndReplace() 查找一个文档并替换
+
+
+db.collection.updateOne(query,update,upsert)
+       功能： 修改第一个符合条件的文档
+       参数：  query  筛选条件  用法同find query
+              update  要修改的数据项，需要配合修改操作
+                       符使用
+	          upsert  bool类型
+	                  默认false: 表示没有符合筛选条
+	      	          件的文档则不做任何操作
+	                  如果设置为true: 则没有筛选到文档
+	                  就根于query和update插入文档
+      e.g.  将Joy年龄修改为18
+            db.class0.updateOne(
+                {name:'Joy'},{$set:{age:18}}
+                )
+      e.g.  如果没有符合query条件的文档则插入新的文档
+            db.class0.updateOne(
+            {name:'Han'},{$set:{age:18}},
+            {upsert:true}
+            )
+
+
+db.collection.updateMany(query,update,upsert)
+      功能： 修改所有复合条件的文档
+      参数： 同updateOne
+
+      e.g.  同时修改所有符合条件的文档
+      db.class0.updateMany({age:{$lt:18}},{$set:{age:20}})
+
+
+db.collection.update(query,update,upsert,multi)
+      功能: 修改筛选到的文档
+      参数：query  筛选条件
+           update 修改内容
+	       upsert 如果为true则可插入新的文档
+	       multi  默认表示只修改第一条符合条件文档
+	              设置为true表示修改多条
+        e.g. 修改所有人年龄为10岁
+	        db.class2.update(
+	            {},{$set:{age:10}},false,true
+	            )
+
+
+db.collection.findOneAndUpdate(query,update)
+      功能： 查找一个文档并修改
+      参数： query 筛选条件
+             update 修改内容
+      返回： 返回修改之前的文档
+
+      e.g.  查找一个文档并修改年龄为17
+      db.class0.findOneAndUpdate({name:'Lily'},{$set:{age:17}})
+
+
+db.collection.findOneAndReplace(query,doc)
+      功能： 查找并替换一个文档
+      参数： query 筛选条件
+            doc   替换的文档
+      返回： 返回原有文档
+
+      e.g.  查找一个文档，并替换为新的文档
+      db.class0.findOneAndReplace(
+        {name:'Joy'}, #查找的文档
+        {'name':'Jame',age:17,sex:'m'} #替换的文档
+        )
+

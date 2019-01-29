@@ -1,0 +1,14 @@
+数据库的备份和恢复
+
+    备份数据库：mongodump -h dbhost -d dbname -o dir
+
+    e.g. 备份       本机      stu数据库 到bak目录中
+        mongodump -h 127.0.0.1 -d stu -o bak
+
+    数据库文件恢复：
+        mongorestore -h dbhost:port -d dbname  path
+
+    e.g. 恢复数据到      本机的         student数据库
+         mongorestore -h 127.0.0.1:27017 -d student
+	 从stu备份目录中
+	 bak/stu

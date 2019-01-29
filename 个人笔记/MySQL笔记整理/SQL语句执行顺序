@@ -1,0 +1,23 @@
+
+
+SQL语句的执行顺序(难点)
+      第一步：from acct
+              首先执行from，找到源数据
+
+      第二步：where 条件过滤
+              选出所有满足条件的数据
+
+      第三步：group by子句
+              进行分组
+
+      第四步：sum(balance), acct_type
+              按照分组，对每组进行统计
+
+      第五步：having acct_type is not null
+              把聚合以后不满足条件的数据过滤掉
+
+      第六步：order by acct_type desc
+              按照统计结果排序
+
+      第七步：limit 1
+              限定显示笔数

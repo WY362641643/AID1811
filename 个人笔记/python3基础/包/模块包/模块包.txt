@@ -1,0 +1,85 @@
+
+
+包(模块包) package
+  包的将模块以文件夹的组织形式进行分组管理的方法
+
+  包的作用:
+    将一系列模块进行分类管理,有利于访问命名冲突
+    可以在需要时加载一个或部分模块而不是全部模块
+
+包示例:
+  mypack/
+      __init__.py
+      menu.py
+      games/
+          __init__.py
+          contra.py
+          supermario.py
+          tanks.py
+      office/
+          __init__.py
+          word.py
+          excel.py
+
+包的导入语法:
+  同模块的导入规则
+    import 包名 [as 包别名]
+    import 包名.模块名 [as 模块新名]
+    import 包名.子包名.模块名 [as 模块新名]
+    ...
+
+    from 包名 import 模块名 [as 模块新名]
+    from 包名.子包名 import 模块名 [as 模块新名]
+    from 包名.子包名.模块名 import 属性名 [as 属性新名]
+    ...
+
+    from 包名 import *
+    from 包名.模块名 import *
+    from 包名.子包名.模块名 import *
+    ...
+
+
+import 语句搜索包的路径顺序
+  1. 搜索程序的运行时路径(当前工作目录)
+  2. 搜索sys.path提供的路径
+
+__init__.py 文件
+  __init__.py 是常规包内必须存在的文件
+  __init__.py 会在包加载时自动调用
+
+  作用:
+    编写此包的内容
+    在内部填写包的文档字符串
+    在__init__.py 文件内可以加载此包所依懒的一些其它模块
+
+
+__init__.py 内的 __all__ 列表 
+  作用:
+    用来记录此包中有哪儿些子包或模块需要导入
+    当用 from 包 import *语句导入时,只查找 __all__ 列表
+    中所有的模块或子包
+  说明:
+    __all__列表只对from xxx import *起作用:
+  示例见:
+    mypack/games/__init__.py
+
+
+包的相对导入
+  包的相对导入是指包内模块的相互导入
+  语法:
+    from 相对路径包或模块 import 属性或模块
+    或
+    from 相对路径包或模块 import *
+  相对路径:
+    from import 语句中 from 和 import 间可以用相对路径
+    . 代表当前目录
+    .. 代表上一级级目录
+    ... 代表上二级目录
+    .... 以此类推
+  说明:
+    相对导入时,不能超出包的外部
+    相对导入不能用于import语句中
+  示例见:
+    mypack/game/contra.py 里的gameover函数
+
+

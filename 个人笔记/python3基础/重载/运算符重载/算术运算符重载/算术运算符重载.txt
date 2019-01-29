@@ -1,0 +1,38 @@
+
+算术运算符重载
+  方法名                     运算符和表达式     说明
+ __add__(self, rhs)           self +  rhs     加法
+ __sub__(self, rhs)           self -  rhs     减法
+ __mul__(self, rhs)           self *  rhs     乘法
+ __truediv__(self, rhs)       self /  rhs     除法
+ __floordiv__(self, rhs)      self // rhs     地板除
+ __mod__(self, rhs)           self %  rhs     求余
+ __pow__(self, rhs)           self ** rhs     幂
+    注:
+      rhs (right hand side) 右手边
+
+二元运算符的重载方法格式
+  def __xxx__(self, other):
+     ...
+示例见:
+  mynumber.py
+
+练习:
+  自己将MyNumber类型实现减法操作
+
+
+练习:
+  1. 实现两个自定义列表相加
+    class MyList:
+        def __init__(self, iterable=()):
+            ...
+        ...
+
+    L1 = MyList([1, 2, 3])
+    L2 = MyList(range(4, 7))
+    L3 = L1 + L2
+    print(L3)  # MyList([1, 2, 3, 4, 5, 6])
+    L4 = L2 + L1
+    print(L4)  # MyList([4, 5, 6, 1, 2, 3])
+    L5 = L1 * 2
+    print(L5)  # MyList([1, 2, 3, 1, 2, 3])

@@ -1,0 +1,35 @@
+
+sys 模块
+  此模块记录运行时系统相关的信息
+  文档参见:
+    python_base_docs_html/系统模块sys.html
+
+
+自定义模块
+  要求:
+    模块文件名后缀必须以.py结尾
+    模块文件名必须是合法的标识符
+    避免名称和内建模块名冲突
+
+  导入方式:
+    import 语句
+    from import 语句
+    from import * 语句
+  
+
+import 语句 搜索模块的路径顺序:
+    1. 搜索内建模块
+    2. 搜索程序运行时的路径(当前路径)
+    3. 搜索sys.path提供的路径
+       sys.path绑定一个列表,里面放的都是模块的搜索路径
+       import sys
+       print(sys.path)
+  
+sys模块
+    sys.platform  # 操作系统平台的信息'linux', 'win32', 'darwin'
+    sys.version / sys.version_info
+    sys.argv   #启动时标准输入，输入为列表，空格间隔
+    sys.path    # 模块的搜索路径
+    sys.exit()  退出程序
+    sys.getrecursionlimit()  # 得到最大的递归深度
+    sys.setrecrusionlimit(v)  # 设置 

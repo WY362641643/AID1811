@@ -1,0 +1,27 @@
+
+方法:
+  对象.方法名(   )
+  S.isalpha()  
+  S.isdigit()  
+  S.isupper()
+  S.islower()
+  S.isspace()  '\n\r\t '
+  S.center(宽度, 填充字符)
+  S.count(字符串, begin, end)
+  S.find(字符串, begin, end)
+  S.strip()  / S.lstrip()  /  S.rstrip()
+  S.upper()
+  S.lower()
+  S.repalce()
+  S.startswith()    /   S.endswith()
+
+
+
+字符串文本解析方法split, splitlines 和join
+S.split(sep=None) 将字符串使用sep作用分隔符分割S字符串，返回
+          分割之后的字符串列表，当不给定参数时，用空白字符作为
+          分隔符
+S.splitlines(sep=None)  将字符串以行为单位进行分割，形成分
+          割后的列表,默认以换行符作为分隔符
+S.join(iterable)  用可迭代对象中的字符串，返回一个中间用S
+          进行分隔的字符串

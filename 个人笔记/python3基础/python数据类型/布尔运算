@@ -1,0 +1,47 @@
+
+布尔运算:
+  运算符
+    not     and    or
+布尔非操作 not
+  语法:
+    not x
+    注: x代表表达式
+  作用:
+    对x进行布尔取非,bool(x) 为True则返回False, 否则返回
+    True
+  示例:
+    not True  # 返回False
+    not False # 返回True
+
+
+布尔与操作 and
+  语法:
+    x and y
+    注: x, y代表表达式
+  作用:
+    优先返回假值对象
+    当x的布尔值为False,返回x, 否则返回y
+  示例:
+    True and True    # True
+    True and False   # False
+    False and True   # False
+    False and False  # False
+    100 and 3.14     # 3.14
+    0 and 3.14       # 0
+    0 and 0.0        # 0
+
+
+布尔或操作 or
+  语法:
+    x or y
+  作用:
+    优先返回真值对象
+    当x为True时返回x, 否则返回y
+  示例:
+    True or True    # True
+    True or False   # True
+    False or True   # True
+    False or False  # False
+    100 or 3.14     # 100
+    0 or 3.14       # 3.14
+    0 or 0.0        # 0.0

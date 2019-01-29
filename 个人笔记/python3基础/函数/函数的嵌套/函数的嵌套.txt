@@ -1,0 +1,15 @@
+
+函数的嵌套定义:
+  函数嵌套定义是指一个函数里用def 语句来创建其它函数的情况
+
+  示例见:
+    #  function_embed_def.py
+
+    def fn_outer():
+        print("fn_outer 被调用")
+        def fn_inner()
+            print("fn_inner 被调用")
+
+        print("fn_outer 调用结束")
+    fn_outer()
+    print("程序结束)

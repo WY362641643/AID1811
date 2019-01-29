@@ -1,0 +1,34 @@
+
+
+索引类型
+
+    复合索引： 根据多个域创建一个索引
+
+    e.g. 根据name  age两个域创建一个索引
+         db.class0.createIndex(
+            {name:1,age:-1})
+
+  子文档和数组索引：如果对某个域创建索引，
+           该域的值为子文档或者数组，则对数组
+           或者子文档中某一项进行查找也是索引查找。
+
+    e.g. 如果对book创建索引则该查找也是索引查找
+        db.class3.find(
+            {'book.title':'围城'},{_id:0}
+            )
+
+
+唯一索引 ： 要求创建索引的域不能有重复的值
+
+    e.g.  对name域创建唯一索引
+        db.class0.createIndex(
+            {name:-1},{unique:true}
+            )
+
+
+    稀疏索引 ： 会在创建索引时忽略没有指定域的文档
+
+    e.g. 对gender域创建稀疏索引
+        db.class0.createIndex(
+            {gender:1},{sparse:true}
+            )

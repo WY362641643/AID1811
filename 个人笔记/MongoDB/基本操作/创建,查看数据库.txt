@@ -1,0 +1,43 @@
+
+创建数据库
+        use  database
+
+	db.dropDatabase()  删除数据库
+	show dbs  查看数据库
+
+	mongodump     备份
+	mongorestore  恢复
+
+	mongostat   数据库检测
+	mongotop    数据库读写时长
+
+
+
+
+创建数据库
+
+    use  database
+
+    e.g.  创建一个叫stu的数据库
+          use  stu
+
+    * use实际是选择使用哪个数据库，如果这个数据库
+        不存在则自动创建
+
+    * 使用use创建数据库，并不会马上建立，而是需要
+        真正插入数据时才会建立
+
+
+查看系统中的数据库： show  dbs
+
+    数据库的命名规则：
+         1. 使用utf-8字符
+         2. 不能含有空格 .  /  \  '\0' 字符
+         3. 长度不超过64字节
+         4. 不要和系统数据库重名
+
+    全局变量db： db变量代表当前正在使用的数据库
+	* db默认代表叫test的数据库
+
+    删除数据库： db.dropDatabase() 删除db代表数据库
+

@@ -1,0 +1,110 @@
+作业 ：  熟练mongodb命令
+
+
+练习
+1. 创建数据库 grade
+	use grade
+
+2. 在数据库中创建集合 class
+3. 在集合中插入若干数据文档，文档结构
+   {name:xxx,age:10,sex:'m',hobyy:['draw','dance']}
+   年龄 7--15岁
+   hobby： draw  dance  running  sing  football
+           basketball  computer
+
+   db.class.insertOne({name:'Lily',age:10,sex:'w',hobby:['draw','dance']})
+
+4. 查找练习
+
+   查看班级所有人信息
+	find()
+
+   查看班级中年龄8岁学生信息
+	find({age:8})
+
+   查看年龄大于12岁学生信息
+	find({age:{$gt:12}})
+
+   查看年龄在8--12岁的学生信息
+	find({age:{$gte:8,$lte:12}})
+
+   查看年龄9岁且喜欢画画的女生
+	find({age:9,hobby:'draw'})
+
+   查看年龄小于8岁或者大于12岁的学生
+	find({$or:[{age:{$lt:8}},{age:{$gt:12}}]})
+
+   查看年龄9岁或者11岁的学生
+	find({age:{$in:[9,11]}})
+
+   查找有两项兴趣爱好的学生
+	find({hobby:{$size:2}})
+
+   找到兴趣爱好有计算机的学生
+	find({hobby:'computer'})
+
+   找到既喜欢画画又喜欢跳舞的学生
+	find({hobby:{$all:['draw','dance']}})
+
+   统计兴趣有三项的学生人数
+	find({hobby:{$size:3}}).count()
+
+   找到本班年龄第二大的学生
+	find({}).sort({age:-1}).skip[1].limit[1]
+	                       [1]
+
+   找到班级中年级最小的三个男生
+	find({sex:'m'}).sort({age:1}).limit(3)
+
+   查看班级中同学兴趣爱好范围
+	db.class.distinct('hobby')
+
+   删除所有年龄小于8岁的同学
+        db.class.deleteMany({age:{$lt:8}})
+
+
+作业： 熟练mongodb增删查操作
+       将mysql中的数据操作练习使用mongodb完成
+
+
+练习：
+
+基于之前的grade数据库
+
+1. 将小红的年龄修改为8岁，兴趣爱好变为跳舞画画
+   update（{name:'小红'},{$set:{age:8,hobby:['dance','draw']}}）
+
+2. 追加小明兴趣爱好唱歌
+   update({name:'小明'},{$push:{hobby:'sing'}})
+
+3. 小王多了兴趣爱好吹牛，打篮球
+   update({name:'小王'},{$pushAll:{hobby:['吹牛','basketball']}})
+
+4. 小李兴趣多了跑步唱歌，但是注意不要和已有的重复
+   update({name:'小李'},{$addToSet:{hobby:{$each:['running','sing']}}})
+
+5. 班级所有同学年龄加1
+   updateMany({},{$inc:{age:1}})
+
+6. 删除小明 sex属性
+   update({name:'小明'},{$unset:{sex:''}})
+
+7. 删除小李兴趣中的第一项
+    update({name:'小李'},{$pop:{hobby：-1}})
+
+8. 删除小红兴趣中画画和唱歌
+   update({name:'小红'},{$pullAll:{hobby:['draw','sing']}})
+
+9. 为小王增加一个域  备注：{民族：'回族',习俗：‘不吃猪肉’}
+    update({name:'小王'},{$set:{备注：{民族：'回族',习俗：‘不吃猪肉’}}})
+
+10. 在小王备注中增加一项， 宗教：‘伊斯兰教’
+      update({name:'小王'},{$set:{'备注.宗教':'伊斯兰教'}})
+
+
+作业： 1. 熟练使用修改操作和索引操作
+      2. mysql修改练习使用mongo完成
+      3. 查文档完成，$avg  $project
+
+        整理复习mongodb数据库内容
+        和mysql对比 总结

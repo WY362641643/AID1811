@@ -1,0 +1,17 @@
+in / not in 运算符
+  作用:
+    in 用于序列,字典,集合中,用于判断某个值是否存在于容器
+    中,如果存在则返回True,否则返回False
+    not in 写in 的返回结果相反
+  格式:
+    对象 in 序列
+  示例:
+    x = 'welcome to tarena!'
+    'to' in x  # True
+    'hello' in x  # False
+    'a' in x  # True
+
+
+练习:
+  写一个程序,任意输入一段字符串,判断你的名字是否在这个字符
+  串中,如果存在则打印"您的名字出现了" 否则不予理睬

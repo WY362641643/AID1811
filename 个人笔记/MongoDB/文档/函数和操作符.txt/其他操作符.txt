@@ -1,0 +1,28 @@
+
+
+其他查找操作符
+
+$exists  判断一个域是否存在  值为bool
+
+    e.g. 查找不存在sex域的文档true表示存在，
+         false表示不存在
+    db.class0.find(
+        {sex:{$exists:false}},{_id:0}
+        )
+
+
+
+$mod  通过除数和余数查找文档
+
+    e.g. 查找年龄除以2余数为1的
+    db.class0.find({age:{$mod:[2,1]}},{_id:0})
+
+
+
+$type  根据值的数据类型筛选
+
+    e.g. 查找age数据类型为1的文档
+    db.class0.find({age:{$type:1}},{_id:0})
+
+    * 数据类型和数字对照表参看文档 $type说明
+

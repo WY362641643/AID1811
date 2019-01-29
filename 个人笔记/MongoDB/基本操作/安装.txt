@@ -1,0 +1,40 @@
+MongoDB数据库 （NoSql 文档型数据库）
+
+特点：
+    1. 由c++编写的数据库管理系统
+    2. 支持丰富的增删改查操作（最像关系型的Nosql）
+    3. 支持丰富的存储类型，技术相对成熟
+    4. 支持众多的编程语言，操作方便
+    5. 开源，便于扩展和部署
+
+MongoDB安装
+
+    linux ：  sudo apt-get install mongodb
+
+    安装位置： /var/lib/mongodb
+    配置文件： /etc/mongodb.conf
+    命令集： /usr/bin
+
+    手动下载安装： www.mongodb.com 下载对应的安装包
+
+cookie：
+
+添加环境变量
+PATH=$PATH:/opt/mongodb..../bin
+export PATH
+
+系统启动脚本
+/etc/init.d/rc.local
+
+MongoDB命令
+
+    设置数据库存储位置： mongod --dbpath  [dir]
+        e.g. 将db设置为数据库存储目录
+	     mongod --dbpath  db
+
+    设置数据库连接端口： mongod --port   [port]
+        * 默认端口  27017
+
+    启动mongodb操作界面（mongo shell）： mongo
+        退出界面：quit（） 或者  ctrl-c
+

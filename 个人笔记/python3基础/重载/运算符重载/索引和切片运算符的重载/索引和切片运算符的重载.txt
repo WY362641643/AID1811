@@ -1,0 +1,14 @@
+
+索引和切片运算符的重载
+  
+  方法名                   运算符和表达式      说明
+ __getitem__(self, i)      x = self[i]   索引/切片取值
+ __setitem__(self, i, v)   self[i] = v   索引/切片赋值
+ __delitem__(self, i)      del self[i]   删除索引/切片
+
+作用:
+  让自义类型的对象能够支持索引和切片操作
+
+示例见:
+  mylist6.py
+  mylist7.py

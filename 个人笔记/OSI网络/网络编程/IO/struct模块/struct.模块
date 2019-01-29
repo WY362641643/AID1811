@@ -1,0 +1,38 @@
+
+
+struct模块
+
+功能 ： 将一组数据进行结构化打包发送
+原理 ： 将数据转换为bytes格式发送，接收到的bytes格式
+         数据也可以按照一定的数据类型解析
+
+Struct(fmt)
+功能： 生成struct对象
+参数： fmt  　　定值的数据结构组成
+        e.g.  要发的数据： 1  zhang   1.75
+	      　fmt数据结构： Struct（'i5sf'）
+
+	      python类型  fmt
+	         int       i
+		     float     f
+	         bytes    ns (n表示n个字符)
+
+st.pack(v1,v2,v3.....)
+功能： 将一组数据按照指定格式打包
+参数： 要打包的数据
+返回值： 返回打包后的bytes字串
+
+e.g.   st.pack(1,b'zhang',1.75)
+
+st.unpack(bytes_data)
+功能：将一个bytes字串解包
+参数： 要解析的bytes
+返回值： 解析后的内容
+
+* 可以使用struct模块直接调用pack  unpack函数
+  struct.pack(fmt,v1,v2,v3...)
+  struct.unpach(fmt,bytes_data)
+  
+  e.g.  struct.pack('i5sf',1,b'zhang',1.75)
+        struct.unpack('i5sf',data)
+

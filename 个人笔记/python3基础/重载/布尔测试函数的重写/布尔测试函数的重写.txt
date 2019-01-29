@@ -1,0 +1,17 @@
+
+布尔测试函数的重写
+  格式:
+    def __bool__(self):
+        return 布尔值
+  作用:
+    用于bool(obj) 函数取值
+    用于if语句真值表达式中
+    用于 while 语句的真值表达式中
+  说明:
+    1. 当自定义的类内有__bool__(self) 方法时, bool(obj)
+       调用此方法返回值
+    2. 当不存在__bool__(self)方法时,bool(obj) 返回 
+       obj.__len__()的值,判断是否为零来测试布尔值
+    3. 当不存在__len__(self) 方法时,则直接返回 True
+  示例见:
+    bool.py

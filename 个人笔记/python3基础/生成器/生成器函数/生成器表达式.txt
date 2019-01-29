@@ -1,0 +1,60 @@
+生成器表达式
+  语法:
+    (表达式 for 变量 in 可迭代对象 [if 真值表达式])
+
+  说明:
+    if 子句的部分可以省略
+  作用:
+    用推导式形式创建新的生成器
+  示例:
+    gen = (x**2 for x in range(1, 5))
+    it = iter(gen)
+    next(it)  # 1
+    next(it)  # 4
+    next(it)  # 9
+    next(it)  # 16
+    next(it)  # StopIteration
+
+生成器说明:
+  生成器即是可迭代对象,同时它自身也是迭代器
+
+
+
+  练习:
+  1. 已知有列表:
+        L  = [2, 3, 5, 7]
+    1) 写一个生成器函数,让此函数能够动态的提供数据,数据
+       为原列表中数字的平方加1 即 : x**2+1
+    2) 写一个生成器表达式,让此表达式能够动态提供数据,数据
+       同样为原列表中的数字的平方加1
+    3) 生成一个列表,此列表内的数据为原列表L中的数字的平方加1
+
+    最终生成的数为:  5  10  26  50
+
+  2. 试写一个生成器函数 myfilter(func, iterable)
+    要求此函数与python内建的函数的功能完全相同
+    如:
+      def myfilter(func, iterable):
+          ....
+        
+      for i in myfilter(lambda x: x%2==1, range(10)):
+          print(i)  # 1 3 5 7 9
+
+  3. 看下面两个程序的执行结果是什么? 为什么?
+    # 程序1
+    L = [2, 3, 5, 7]
+    A = [x*10 for x in L]
+    it = iter(A)
+    print(next(it))  # 20
+    L[1] = 333
+    print(next(it))  # 30
+
+    # 程序2
+    L = [2, 3, 5, 7]
+    A = (x*10 for x in L)  # <<< 注[] 改为了()
+    it = iter(A)
+    print(next(it))  # 20
+    L[1] = 333
+    print(next(it))  # 3330
+
+

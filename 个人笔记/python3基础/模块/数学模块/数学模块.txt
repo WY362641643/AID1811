@@ -1,0 +1,4 @@
+数学模块
+  模块名 math
+  文档参见:
+     python_base_docs_html/数学模块math.html

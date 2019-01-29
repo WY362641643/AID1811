@@ -1,0 +1,22 @@
+数据库监控命令
+
+    mongostat       查看数据库运行状态
+
+	insert query update delete：
+	                 每秒增查改删次数
+
+	command：        每秒执行mongo命令次数
+
+	flushes：        和磁盘交互情况
+
+	vsize  res：     使用虚拟内存和物理内存情况
+
+	time：           运行时间
+
+    mongotop        检测每个数据库中数据表的读写情况
+
+
+	ns              数据集合名称
+	total           总时长
+	read            读时长
+	write           写时长

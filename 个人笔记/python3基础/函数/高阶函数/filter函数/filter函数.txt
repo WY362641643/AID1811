@@ -1,0 +1,28 @@
+
+filter 函数
+  格式:
+    filter(func, iterable)
+  作用:
+    创建一个可迭代对象,此可迭代对象将用func函数对iterable中
+    的数据进行筛选
+  参数:
+    func 筛选函数,有一个形参, 通常返回True/False
+    iterable  原始的可迭代数据
+  返回值:
+    可迭代对象
+示例:
+  def isodd(x):
+      '''此函数判断x是否为奇数,如果为奇数返回True'''
+      return x % 2 == 1
+
+  # 打印1~10以内的所有奇数:
+  for x in filter(isodd, range(10)):
+      print(x)
+
+  # 生成 10 以内所有偶数的列表[0, 2, 4, 6, 8]
+  L = list( filter(lambda x: x%2==0, range(10)) )
+  print(L)
+
+练习:
+  用filter 函数将 1 ~ 100 之间所有的素数prime存放于列表中
+  

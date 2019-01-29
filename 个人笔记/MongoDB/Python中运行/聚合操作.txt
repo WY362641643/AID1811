@@ -1,0 +1,7 @@
+
+
+聚合操作
+
+aggregate([])
+    参数： 同mongoshell 中聚合
+    返回值： 和find()相同返回一个游标对象

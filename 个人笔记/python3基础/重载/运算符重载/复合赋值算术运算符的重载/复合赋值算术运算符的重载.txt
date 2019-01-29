@@ -1,0 +1,19 @@
+
+复合赋值算术运算符的重载
+  1. 以复合赋值算术运算符 x += y 为例,此运算符会优先调用
+     x.__iadd__(y)方法, 如果没有__iadd__方法时,会将复合
+     赋值运算符 x += y 拆解为 x = x.__add__(y) 方法,
+     如果再不存在__add__方法,则会触发TypeError类型的错误
+    其它复合赋值运算符也具有相同的规则
+
+算术运算符重载
+  方法名                     运算符和表达式     说明
+ __iadd__(self, rhs)           self +=  rhs     加法
+ __isub__(self, rhs)           self -=  rhs     减法
+ __imul__(self, rhs)           self *=  rhs     乘法
+ __itruediv__(self, rhs)       self /=  rhs     除法
+ __ifloordiv__(self, rhs)      self //= rhs     地板除
+ __imod__(self, rhs)           self %=  rhs     求余
+ __ipow__(self, rhs)           self **= rhs     幂
+    注:
+      rhs (right hand side) 右手边

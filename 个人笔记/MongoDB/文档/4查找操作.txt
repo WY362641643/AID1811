@@ -1,0 +1,45 @@
+
+查找操作
+
+mysql：  select ... from  table  where ...
+
+mongo:   db.collection.find(query,field)
+
+find(query,field)
+    功能： 查找所有复合条件的文档
+    参数： query  表示筛选条件
+          field  表示要查找的域
+
+
+query: 是一个键值对构成的文档，表达查找条件
+
+        e.g. 查找所有年龄17的文档
+             db.class0.find({age:17})
+
+
+field：是一个键值对构成文档，通过描述某个域的值,
+           1表示查找该域,0表示不查找。
+
+        e.g. 不查找_id ，查找name，age域
+             db.class0.find({},{_id:0,name:1,age:1})
+
+	 * _id域如果不想查找则写_id:0，查找则不写
+	 * 除_id外其他域要么全为0表示不查找这些域，
+	    要么全为1表示查找指定的域,
+
+
+查找集合中所有内容： db.collection.find()
+
+
+findOne(query,field)
+        功能： 查找第一条符合条件的文档
+        参数： 同find
+
+        e.g.  查找第一个年龄为18岁的文档
+             db.class0.findOne({age:18},{_id:0})
+
+query的筛选功能
+
+操作符：使用$符号注明一个有特殊意义的字符串，表达丰富的含义。
+        比如： $lt 表示小于
+        详见:查找操作符文件夹

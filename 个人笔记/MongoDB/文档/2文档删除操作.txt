@@ -1,0 +1,49 @@
+
+文档删除操作
+
+mysql ：  delete  from table  where ....
+
+mongo :
+
+db.collection.deleteOne(query)
+          功能： 删除复合条件的第一条文档
+	  参数： query 筛选条件，用法同find query
+
+	  e.g. 删除第一个年龄小于40的
+	   db.class1.deleteOne({age:{$lt:40}})
+
+
+
+
+db.collection.deleteMany(query)
+	  功能：删除所有复合条件的文档
+	  参数： query
+
+	  e.g. 删除所有年龄大于30性别为m的
+	   db.class1.deleteMany({age:{$gt:30},sex:'m'})
+
+   *  db.student.deleteMany({})可以删除集合中所有文档
+
+
+
+
+db.collection.remove(query,justOne)
+	  功能:删除文档
+	  参数： query 筛选条件
+	         justOne 默认false 此时同deleteMany
+		             设置true  此时同deleteOne
+
+	  e.g. 删除第一个性别为m的文档
+	  db.class0.remove({sex:'m'},true)
+
+
+
+
+db.collection.findOneAndDelete(query)
+	功能： 查找某个文档，并删除
+	参数： query
+	返回： 返回查找到的文档
+
+	e.g.  查找第一个年龄为17的文档并删除
+	 db.class0.findOneAndDelete({age:17})
+

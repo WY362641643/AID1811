@@ -1,0 +1,16 @@
+
+
+Null类型数据
+
+  值： null
+
+  1. 表示某个域值为空
+
+    e.g. 表示price域值为空
+     db.class1.insertOne({book:'Python放生',price:null})
+
+
+  2. 表示某个域不存在
+
+    e.g. 查找price域为null或者不存在这个域的文档
+    db.class1.find({price:null},{_id:0})

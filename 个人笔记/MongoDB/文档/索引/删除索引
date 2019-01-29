@@ -1,0 +1,20 @@
+
+删除索引
+
+
+db.collection.dropIndex()
+    功能：删除一个索引
+    参数: 索引名或者键值对删除
+
+    e.g.  通过名称删除索引
+        db.class0.dropIndex("gender_-1")
+
+    e.g. 通过键值对删除
+        db.class0.dropIndex({age:-1})
+
+
+db.collection.dropIndexes()
+    功能： 删除所有索引 （除了_id）
+
+    e.g. 删除class0中所有索引
+        db.class0.getIndexes()

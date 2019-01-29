@@ -1,0 +1,20 @@
+
+
+反向算术运算符重载
+  1. 当运算符的左侧为内建类型时,右侧为自定义类型进行算术运算符
+     运算时,会出现TypeError错误
+  2. 因无法修改 内建类的对应方法来实现运算符重载,此时需要使用
+     反向算术运算符的重载来完成重载
+
+  方法名                     运算符和表达式     说明
+ __radd__(self, lhs)           lhs +  self     加法
+ __rsub__(self, lhs)           lhs -  self     减法
+ __rmul__(self, lhs)           lhs *  self     乘法
+ __rtruediv__(self, lhs)       lhs /  self     除法
+ __rfloordiv__(self, lhs)      lhs // self     地板除
+ __rmod__(self, lhs)           lhs %  self     求余
+ __rpow__(self, lhs)           lhs ** self     幂
+    注:
+      lhs (left hand side) 右手边
+示例见:
+  mylist.py

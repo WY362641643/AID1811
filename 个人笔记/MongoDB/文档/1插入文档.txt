@@ -1,0 +1,49 @@
+
+
+插入文档
+
+插入单个文档：
+       db.collection.insertOne()
+		   功能： 插入一条文档
+		   参数： 要插入的文档
+
+    e.g. 向class0中插入一个文档
+         db.class0.insertOne(
+            {'name:'Lily','age':18,'sex':'w'}
+            )
+
+    * 使用db.class0.find()查看插入结果
+    * 在对文档操作时，键可以不加引号
+    * 可以自己添加_id域的值，但是_id域不能重复
+    * 一个集合中插入的文档是有顺序性的
+
+
+插入多个文档：
+       db.collection.insertMany([{},{}..])
+		   功能： 插入多个文档
+		   参数： 数组中包含多个文档
+
+    e.g. 同时插入多条文档
+         db.class1.insertMany([
+             {name:'秀波',age:50,sex:'m'},
+             {name:'文章',age:37,sex:'m'},
+             {name:'林丹',age:31,sex:'m'}
+             ])
+
+
+插入文档： db.collection.insert()
+	   功能： 等于insertOne+insertMany
+
+
+
+save 插入文档
+
+    db.collection.save()
+    功能： 插入文档，用法同insert
+    参数： 同insert，可以同时插入一条或者多条文档
+
+    * save如果要插入的文档_id已经存在则会修改原有文档
+      db.class0.save(
+        {_id:1,name:"Joy",age:19,sex:'m'}
+        )
+

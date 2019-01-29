@@ -1,0 +1,31 @@
+
+select方法
+
+rs, ws, xs=select(rlist, wlist, xlist[, timeout])
+功能：监控IO事件，阻塞等待IO事件发生
+参数： 
+      rlist  　 列表  　想要关注的等待发生的IO事件
+      wlist  　 列表 　 想要关注的可以主动处理的IO
+      xlist 　  列表 　 想要关注的出现异常去处理的IO
+      timeout   超时时间
+
+返回值：
+     rs  列表  rlist中准备就绪的事件
+     ws  列表  wlist中准备就绪的事件
+	 xs  列表  xlist中准备就绪的事件
+
+
+
+基于select IO多路复用的tcp服务端
+
+   步骤：
+         1. 将关注的IO放入对应类别的列表
+         2. 通过select函数进行IO监控
+	     3. 当IO事件发生时遍历select返回值列表
+	     4. 处理发生的IO
+
+   注意：  wlist 中如果有IO事件则会立即返回到返回值中
+    
+          在IO处理中不宜出现死循环等长期占有服务端的情况
+
+	      IO多路复用占用计算机资源较少，效率较高

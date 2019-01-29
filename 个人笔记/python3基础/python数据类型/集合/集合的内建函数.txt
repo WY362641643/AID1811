@@ -1,0 +1,23 @@
+
+
+  集合和固定集合运算:
+    & 交集, | 并集, -补集, ^对称补集,  < 子集, > 超集
+    &=     |=      -=     ^=
+    <=   >=  == != 
+    in / not in
+
+  函数:
+    len(x).....
+  集合的方法:
+    S.add(x)      添加
+    S.remove(x)   删除
+    S.discard(x)  删除(不报错误)
+    S.pop(x)      移除(取出)
+    S.clear()     清空
+    S.copy()      浅拷贝
+    S.update(s2)
+    ...
+  所有的容器类都是可迭代对象
+    list, str, tuple, dict, set, frozenset
+    bytes, bytearray(后面才学)
+

@@ -1,0 +1,21 @@
+
+
+IO多路复用
+
+定义： 同时监控多个IO事件，当哪个IO事件准备就绪就执
+        行哪个IO事件。以此形成可以同时操作多个IO的行
+        为，避免一个IO阻塞造成其他IO都不可执行的形态，
+        提高IO运行效率
+
+就绪IO ： 表示一种临界状态，即该IO已经发生，由内核交
+           由应用程序处理
+
+具体方案：
+
+    1. 系统支持
+       select ： windows   Linux   Unix
+       poll ： Linux   Unix
+       epoll ： Linux
+
+    2. python实现
+       import select

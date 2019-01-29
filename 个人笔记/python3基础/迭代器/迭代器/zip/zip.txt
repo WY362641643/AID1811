@@ -1,0 +1,21 @@
+
+函数                            
+ zip(iter1, iter2, iter3, ....)
+    说明:    
+      返回一个zip生成器对象,此对象生成一个元组,此元组中的
+      数据分别来自于iter1, iter2,..., 可迭代对象提供的
+      数据个数由最小的可迭代对象参数决定
+
+zip 示例
+  numbers = [10086, 10000, 10010, 95588]
+  names = ['中国移动', '中国电信', '中国联通']
+  for t in zip(numbers, names):
+      print(t)
+  for name, numb in zip(names, numbers):
+      print(name, '的客服电话是', numb)
+
+  for t in zip(numbers, names, range(1, 10000)):
+      print(t)  # (10086, '中国移动', 1), ....
+
+示意 zip 函数的内部实现原理,示例见:
+    myzip.py

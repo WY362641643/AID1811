@@ -1,0 +1,60 @@
+
+
+插入操作 ：
+
+    insert_one() 插入一条文档
+    insert_many() 插入多条文档
+    insert()  插入一条或者多条文档
+
+    save()  插入数据，_id相同时替换原有内容
+
+
+查找操作：
+
+    find()
+        功能: 查找所有文档
+        参数： 同mongo shell find
+        返回： 游标对象
+
+        * 所有操作符在python中以字符串方式传入参数结构
+        *mongo中    true  false  null 对应
+         python中的 True  False  None
+
+
+    cursor 对象属性
+
+        next() 获取下一个文档
+
+        limit() 显示前几条文档
+
+        skip()  跳过前几条
+
+        count()  计数
+
+        sort()  排序
+
+    * 调用limit skip sort 时要求游标必须是完整的没取过值
+
+
+    find_one()
+        功能 ： 查找一个文档
+        参数 ： 同find()
+        返回 ： 返回一个字典
+
+
+修改操作
+
+    update_one()  修改一条文档
+
+    update_many() 修改多条文档
+
+    update()
+
+删除操作
+
+    delete_one()  删除一个文档
+
+    delete_many()  删除多个文档
+
+    remove(query,multi=True)
+

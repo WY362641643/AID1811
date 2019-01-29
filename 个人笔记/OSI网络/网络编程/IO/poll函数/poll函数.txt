@@ -1,0 +1,63 @@
+
+poll方法
+
+
+p = select.poll()
+功能： 生成poll对象                                                                
+返回值： poll对象
+
+
+p.register(fd,event)
+功能： 注册要监控的IO事件
+参数： 　
+     fd     要监控的IO对象
+     event  选择要关注的事件类别
+      常用：POLLIN   读IO事件    rlist
+	         POLLOUT  写IO事件    wlist
+		       POLLERR  出错IO      xlist
+		       POLLHUP  断开连接事件
+
+          e.g.  p.register(s,POLLIN|POLLERR)
+
+
+p.unregister(fd)
+功能： 取消对IO的监控
+参数： IO对象或者文件描述符
+
+
+events = p.poll()
+功能： 监控所有注册的IO
+返回值： events 是一个列表，返回所有就绪的IO
+         [(fileno,event),(fileno,event),....]
+         每个就绪IO都会在系列表中形成一个元组
+	       第一项为IO的fileno，第二项为就绪事件
+
+
+* 需要配合查找字典通过fileno获取事件对象处理IO
+  e.g.  {s.fileno():s} 确保字典包含所有注册IO 
+
+poll_server步骤：
+
+1.创建套接字
+2.注册套接字为关注IO
+3.创建查找字典，并维护
+4.循环监控IO发生
+5.处理发生的IO事件
+
+epoll方法
+
+使用方法： 基本与poll方法相同
+* 将生成对象的poll改为epoll
+* 将所有事件改为epoll类型事件
+
+epoll特点：
+  * epoll的效率比select和poll要高
+  * epoll可以监控的io比select poll要多
+  * epoll的触发方式要多 EPOLLET(边缘触发) 。默认三种方
+     法都是水平触发（实际select poll只有水平触发）
+
+    水平触发：当IO事件发生时会一直提醒用户处理，直到
+            处理完毕
+    边缘触发：当IO事件完发生时提醒用户处理，如果没有 
+            处理则不会持续提醒，而是下一次再有IO事
+            件就绪时再一同请求用户处理

@@ -1,0 +1,43 @@
+greenlet
+
+    安装： sudo pip3 install greenlet
+
+    greenlet.greenlet(func)
+    功能： 创建协程对象
+    参数： 协程函数
+    返回： 协程对象
+
+    g.switch()
+    功能： 选择要执行的协程函数
+
+gevent
+
+    安装： sudo pip3 install gevent
+
+    使用步骤：
+    1. 将协程封装为函数
+    2. 生成协程对象
+       gr = gevent.spawn(func,argv)
+       功能： 生成协程对象
+       参数： func 协程函数
+             argv 不定参 给func按照位置传参
+       返回值： 协程对象
+    
+    3. 协程回收
+       gevent.joinall(list,[timeout])
+       功能：阻塞等待回收协程
+       参数： list 列表  放入要回收的协程对象
+              timeout 超时时间
+
+    gevent.sleep(): gevent阻塞，可以使协程跳转
+	
+    特点：
+    1. 无论有多少协程运行，同一时刻只会运行一个
+    2. 协程不会阻碍主进程的持续运行除非遇到gevent阻塞
+
+from gevent import monkey
+
+monkey.patch_all() 
+功能： 运行monkey脚本，使程序中阻塞行为可以被gevent捕获
+
+* 脚本的运行必须在模块导入之前

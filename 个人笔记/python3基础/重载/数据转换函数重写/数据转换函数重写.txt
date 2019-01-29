@@ -1,0 +1,12 @@
+
+
+数据转换函数重写
+     方法名           对应函数名
+  __complex__       complex(x)
+  __int__           int(x)
+  __float__         float(x)
+  __bool__          bool(x)
+
+示例见:
+  mynumber3.py
+

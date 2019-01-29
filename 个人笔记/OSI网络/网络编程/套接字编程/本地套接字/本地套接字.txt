@@ -1,0 +1,28 @@
+
+
+本地套接字
+
+功能： 本机两个程序之间进行数据传输
+
+创建流程
+    1. 创建本地套接字
+       sockfd = socket(AF_UNIX,SOCK_STREAM)
+    2. 绑定本地套接字文件
+       sockfd.bind(file)
+    3. 监听
+       listen()
+    4. 消息收发
+       recv  send
+
+cookie
+Linux 系统中文件： b块设备  c字符设备
+                 d 目录  - 普通文件
+                 l链接   s 套接字文件
+		         p 管道文件
+
+os.remove(file)
+功能：删除一个文件
+
+os.path.exists(file)
+功能：判断一个文件是否存在
+

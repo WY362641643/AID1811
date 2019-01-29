@@ -1,0 +1,22 @@
+
+python 的作用域
+  作用域也叫名字空间, 是访问变量时查找变量名的范围空间
+
+python的四个作用域 LEGB
+   作用域               英文释释                英文简写
+ 局部作用域(函数内)    Local(function)             L
+ 外部嵌套函数作用域    Enclosing function local    E
+ 函数定义所在模块的作用域  Global(module)           G
+ Python 内置模块的作用域  Builtin(python)          B
+
+ 示例见:
+   namespace.py
+
+变量名的查找规则:
+  在访问变量时,先查找本地变量,然后是包裹此函数的外部的内部的
+  变量,之后是全局变量,最后是内置变量,即:
+     L  --->   E   --->   G   --->  B
+  在默认的情况下,赋值语句只能在当前作用域内创建变量
+
+
+

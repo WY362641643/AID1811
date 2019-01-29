@@ -1,0 +1,27 @@
+
+函数:
+  len(x)  max(x)  min(x)  sum(x)   any(x)  all(x)\
+
+  reversed(x)  将可迭代对象反转,返回另一个可迭代对象
+  sorted(x, reverse=False)  排序(默认为升序排序)
+列表的方法:
+  L.append(x)  # 追加
+  L.extend(可迭代对象)  # 作用类似于L += (可迭代对象)
+  L.count(x)
+  L.copy()        浅拷贝
+  L.remove(x)     删除
+  L.pop([索引])    移除(取出)返回取出来的数据
+  L.clear()       清空
+  L.inserst(索引,obj)  插入
+  L.sort(reverse=False)  # 对L列表进行排序
+  L.reverse()            # 对L列表进行反转
+
+深拷贝和浅拷贝
+  不拷贝:
+    L2 = L1   两个变量同时绑定同一个对象
+  浅拷贝:
+    L2 = L1.copy()  或 L2 = L1[::]  只复制一层,深层对象
+                                    共同拥有 
+  深拷贝:
+    import copy
+    L2 = copy.deepcopy(L1)  # 复制整数树型关联的对象

@@ -1,0 +1,59 @@
+修改器的使用
+
+$set :  修改一个域的值，或者增加一个域
+
+    e.g.  使用set增加一个name域
+        db.class0.updateOne(
+            {name:{$exists:false}},{$set:{name:'Han'}}
+            )
+
+$unset:  删除一个域
+
+     e.g.  删除han的age域
+        db.class0.updateOne({name:'Han'},{$unset:{age:''}})
+
+
+
+$rename : 修改一个域的域名
+
+    e.g.  修改所有sex域名为gender
+        db.class0.updateMany({},{$rename:{sex:'gender'}})
+
+
+
+$setOnInsert : 当upsert插入文档时，作为补充的插入内容
+
+    e.g.  当插入新文档时，作为补充插入的 内容
+       db.class0.update(
+          {name:'Daivl'},{$set:{age:18},
+          $setOnInsert:{gender:'w'}},{upsert:true}
+          )
+
+
+$inc :  加法修改器
+
+    e.g.  所有文档年龄域加1
+        db.class0.updateMany({},{$inc:{age:1}})
+
+
+$mul : 乘法修改器
+
+    e.g.  将han年龄乘以2
+         db.class0.updateOne({name:'Han'},{$mul:{age:2}})
+
+    * $inc $mul 操作数可以是正数，负数，整数，小数
+
+
+
+$max : 指定某个域的值，如果小于规定值则修改为规定值，大于规定值则不变
+
+    e.g. 如果age小于20则改为20，大于20则不变
+         db.class0.updateOne({name:'Abby'},{$max:{age:20}})
+
+
+
+$min : 指定某个域的值，如果大于规定值则修改为规定值，小于规定值则不变
+
+    e.g.  将年龄大于25的修改为25
+         db.class0.updateMany({},{$min:{age:25}})
+

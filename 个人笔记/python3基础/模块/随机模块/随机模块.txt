@@ -1,0 +1,10 @@
+随机模块 random
+  作用:
+    用于模拟或生成随机输出的模块
+  文档参见:
+    python_base_docs_html/随机模块random.html
+
+random模块
+      random.random()
+      random.randint(a, b)
+      ...

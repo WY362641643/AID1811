@@ -1,0 +1,27 @@
+
+集成模块完成多进程多线程socket并发
+
+import socketserver
+
+功能：通过模块提供的不同的类的组合完成多进程/多线程，
+    tcp/udp的并发程序
+
+DatagramRequestHandler  处理数据报套接字请求
+StreamRequestHandler  处理流式套接字请求
+
+UDPServer  构建udp服务端程序
+TCPServer  构建tcp服务端程序
+
+ForkingMixIn   创建多进程并发
+ForkingTCPServer    ForkingMixIn + TCPServer   
+ForkingUDPServer    ForkingMixIn + UDPServer
+
+ThreadingMixIn  创建多线程并发
+ThreadingTCPServer  ThreadingMixIn + TCPServer 
+ThreadingUDPServer  ThreadingMixIn + UDPServer
+
+使用步骤： 
+    1. 创建服务器类，通过选择TCPServer或者UDPServer确定服务器类型，多进程或者多线程确定并发类型
+    2. 创建请求处理类，根据服务器类型选择继承流式套接字处理类还是数据报套接字处理类
+    3. 通过服务器类创建服务器对象，并绑定请求处理类
+    4. 通过serve_forever()接口启动服务

@@ -1,0 +1,10 @@
+
+内建函数的重写
+   方法名           说明
+  __abs__       abs(obj) 函数调用
+  __len__       len(obj) 函数调用
+  __reversed__  reversed(obj) 函数调用 
+  __round__     round(obj) 函数调用
+
+示例见:
+  len_overwrite.py

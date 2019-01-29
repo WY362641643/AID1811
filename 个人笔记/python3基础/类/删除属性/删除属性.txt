@@ -1,0 +1,14 @@
+
+删除属性:
+  del 语句可以删除对象的属性
+
+  语法:
+    del 实例.实例属性名
+  示例:
+    class Dog:
+       pass
+    dog1 = Dog()
+    dog1.color = '白色'
+    print(dog1.color)  # 白色
+    del dog1.color
+    print(dog1.color)  # 出错,没有这个属性

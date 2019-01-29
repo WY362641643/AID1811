@@ -1,0 +1,15 @@
+
+in / not in 运算符重载
+  方法:
+    def __contains__(self, e):
+        return 真值或假值
+
+  运算符和表达式:
+    e in self  
+    或
+    e not in self
+  说明:
+    not in 与 in 运算符返回值相反,只实现in即或,没有not in 
+    对应的方法
+示例见:
+  mylist5.py

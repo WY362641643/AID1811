@@ -1,0 +1,100 @@
+
+模块的导入 import
+import 语句
+  语法:
+    import 模块名1 [as 模块新名1][, 模块名2[as 模块新名2]]
+  作用:
+    将某模块整体导入到当前模块作用域内
+  示例:
+    import math
+    print(math.factorial(5))
+    import time, sys
+  用法:
+    模块名.属性名
+
+import 语句 搜索模块的路径顺序:
+    1. 搜索内建模块
+    2. 搜索程序运行时的路径(当前路径)
+    3. 搜索sys.path提供的路径
+       sys.path绑定一个列表,里面放的都是模块的搜索路径
+       import sys
+       print(sys.path)
+
+查看模块属性的函数:
+  dir(obj) 函数, 返回模块内所有属性的列表
+  help(obj) 函数,可以查看模块相关的文档字符串
+
+
+
+from import 语句
+  语法:
+    from 模块名 import 属性名1[as 属性新名1]
+            [, 属性名2 [as 属性新名2], ...]
+  作用:
+    将某模块内的一个或多个属性导入到当前模块的作用域
+  示例:
+    from math import factorial as fac
+    from math import sin, cos, e
+    from math import sqrt, pi
+    print(sin(pi/2))
+    print(fac(5))  # 120
+
+
+from import *语句
+  语法:
+    from 模块名 import *
+  作用:
+    将某模块的所有属性导入到当前模块
+  示例:
+    from math import *
+    print(sin(pi))
+    print(factorial(10))
+
+
+模块被导入和执行的过程
+  1. 先搜索相关的路径找模块(.py文件)
+  2. 判断是否有此模块对应的.pyc文件,如是有.pyc文件且.pyc文件
+     比.py 文件新,则直接加载.pyc文件
+  3. 否则先用.py文件生成.pyc文件,然后再加载.pyc文件
+
+
+模块内的__all__列表
+  模块中的__all__列表是一个用来存放可导出属性的字符串列表
+
+  作用:
+    当用from xxx import * 导入时,只导入__all__列表内的属性
+  示例见:
+    mymod2.py
+  注: __all__列表只对from import *语句有效,对其它导入语句
+     无效
+  
+  
+模块的隐藏属性
+  模块中以下划线(_) 开头的属性,在 from xxx import *语句
+  导入时将不被导入,通常称这些属性为隐藏属性
+
+  示例见:
+    mymod3.py
+
+
+
+练习:
+  1. 写一个程序,输入圆的半径, 打印出这个圆的面积
+  2. 输入一个圆的面积,打印出这个圆的半径
+    (要求: 用math模块里的函数实现)
+      详见:>>> help(math)
+练习:
+  写一个程序，输入你的生日（年,月,日）
+    1) 算出你已经出生了多少天
+
+
+数学模块
+  模块名 math
+  文档参见:
+     python_base_docs_html/数学模块math.html
+
+
+时间模块
+  模块名 time
+  文档参见:
+    python_base_docs_html/时间模块time.html

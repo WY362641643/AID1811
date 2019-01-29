@@ -1,0 +1,21 @@
+
+
+
+高阶函数 High Order Function
+  什么是高阶函数?
+    满足下列条件中一个的函数即为高阶函数
+      1. 函数接受一个或多个函数作为参数传入
+      2. 函数返回一个函数
+
+
+python 内建的高阶函数
+  map   filter  sorted
+
+  小结:
+  三个高阶函数
+    map(func, 可迭代对象1, 可迭代对象2)
+       对一个或多个可迭代的数据处理
+    filter(func, 可迭代对象)
+       过滤
+    sorted(可迭代对象,key=函数, reverse=False)
+       排序

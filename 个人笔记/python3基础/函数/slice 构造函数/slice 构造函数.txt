@@ -1,0 +1,12 @@
+
+slice 构造函数:
+  格式:
+    slice(start=None, stop=None, step=None) 
+  作用:
+    创建一个slice切片对象,此对象存储一个切片的起始值,终止值
+    和步长信息
+  slice对象的属性
+    s.start   切片的起始值(默认为None)
+    s.stop    切片的终止值(默认为None)
+    s.step    切片的步长(默认为None)
+  

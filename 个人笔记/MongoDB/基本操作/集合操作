@@ -1,0 +1,57 @@
+
+集合操作
+
+       db.createCollection()  创建集合
+       db.collection.insert() 创建集合
+       db.getCollection()     获取集合对象
+       db.collection.drop()   删除集合
+       db.collection.renameCollection()  重命名
+       show  collections   查看集合
+
+
+创建集合
+
+    方法1： db.createCollection(collection_name)
+
+        e.g. 创建集合class1
+	     db.createCollection('class1')
+
+    方法2：当向一个集合中插入数据时如果没有该集合则自动创建
+
+        e.g. 如果没有class0则自动创建
+            db.class0.insert(
+                {'name':'Lucy','age':17}
+                )
+
+
+查看数据库中集合：
+             1.  show  collections
+             2.  show  tables
+
+
+    集合命名规则：
+        1. utf-8字符
+        2. 不能含有'\0'
+        3. 不能以system.开头，这是系统集合默认开头
+        4. 不要和关键字重复
+
+
+
+删除集合： db.collection.drop()
+
+	e.g. 删除stu集合
+	     db.stu.drop()
+
+
+
+获取集合对象：db.getCollection('class0')
+
+         * 等价于 db.class0
+
+
+
+集合重命名：
+	db.collection.renameCollection("new_name")
+
+        e.g. stu集合重命名为student
+             db.stu.renameCollection('student')

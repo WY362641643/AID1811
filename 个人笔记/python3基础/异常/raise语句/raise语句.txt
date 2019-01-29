@@ -1,0 +1,30 @@
+
+
+raise 语句
+  作用:
+    触发一个错误,让程序进入异常状态
+    发送错误通知给调用者
+  语法:
+    raise 异常类型
+    或
+    raise 异常对象
+    或
+    raise    # 重新触发上一次异常
+  说明:
+    raise 无参调用通常用于try-except 的except 子句中
+  示例见:
+    raise2.py
+
+练习:
+  写一个函数 get_age() 用来获取一个人的年龄信息
+    此函数规定用户只能输入1~140之间的整数,如果用户输入其它
+    的数则直接触发ValueError 类型的错误
+  如:
+    def get_age():
+        ...  # 此处自己实现
+
+    try:
+        age = get_age()
+        print("用户输入的年龄是:", age)
+    except ValueError as err:
+        print("用户输入的不是1~140之间的整数!!!")

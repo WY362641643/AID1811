@@ -1,0 +1,62 @@
+
+socket模块获取网络信息
+
+import  socket
+
+socket.gethostname()
+                        获取计算机名 
+
+socket.gethostbyname('localhost')
+                        通过计算机名获取主机地址：
+
+socket.getservbyname('mysql')
+                        获取应用程序端口 ：
+
+socket.getservbyport(3306)
+                        通过端口获取应用程序名称
+
+socket.inet_aton('192.168.1.2')
+                        将IP地址转换为16进制
+
+socket.inet_ntoa(b'\xc0\xa8\x01\x02')
+                        将16进制bytes地址转换为IP地址                    
+
+sockfd.type         
+            套接字类型
+
+sockfd.family       
+            套接字地址族类型
+
+sockfd.getsockname()
+            获取套接字绑定地址
+
+sockfd.fileno()  
+            获取套接字的文件描述符
+
+文件描述符：系统中每一个IO操作都会被分配一个整数的
+            文件描述符，用于系统区分不同的IO操作。
+	        文件描述符具有唯一性
+
+sockfd.getpeername()
+            获取连接套接字客户端地址
+
+
+
+
+sockfd.setsockopt(level,option,value)
+    功能：设置套接字选择功能
+    参数： level  选项级别   SOL_SOCKET
+        option  每个选项类别对应的子选项
+        value   对选项设置值
+    
+    e.g设置端口立即重用
+    s.setsockopt(SOL_SOCKET,SO_REUSEADDR,1)
+    * 设置最好紧跟在套接字创建之后
+
+
+
+sockfd.getsockopt(level,option)
+    功能：获取套接字选项值
+    参数： level  选项级别   SOL_SOCKET
+        option  每个选项类别对应的子选项
+    返回值： 选项的值

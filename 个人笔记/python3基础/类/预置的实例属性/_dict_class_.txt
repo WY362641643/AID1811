@@ -1,0 +1,32 @@
+__dict__ 属性
+  __dict__ 属性绑定一个存储此实例自身变量的字典
+
+  示例:
+    class Dog:
+        pass
+    dog1 = Dog()
+    print(dog1.__dict__)  # {}
+    dog1.color = '白色'
+    print(dog1.__dict__)  # {'color': '白色'}
+
+__class__ 属性
+  __class__ 属性绑定创建此实例的类
+
+  作用:
+    可以借助此属性来访问创建此实例的类
+  示例:
+    class Dog:
+       pass
+    dog1 = Dog()
+    print(dog1.__class__)
+    print(dog1.__class__ is Dog)  # True
+    dog2 = dog1.__class__()  # 创建一个dog1的同类对象
+    print(dog2.__class__)
+
+
+
+预置实例属性:
+  __dict__ 属性
+    绑定存储此对象的实例属性的字典
+  __class__ 属性
+    绑定创建此对象的类

@@ -1,0 +1,41 @@
+
+
+创建索引
+
+
+db.collection.createIndex(index,option)
+    功能： 创建索引
+    参数： 索引域 和 索引选项
+
+    e.g. 为name域创建索引
+         db.class0.createIndex({name:1})
+
+    * _id域会自动生成索引，该索引不能删除
+    * 1 表示正向索引，-1表示逆向索引
+    * 一个集合中不能创建重复的索引
+
+
+查看集合中索引：
+    db.collection.getIndexes()
+
+
+定义索引名称
+    e.g.  通过索引选项name定义索引名称
+    db.class0.createIndex({age:1},{name:'ageIndex'})
+
+
+其他索引创建方法
+       ensureIndex()
+       功能：创建索引
+       参数：同createIndex
+
+       e.g. 创建方法同createIndex
+       db.class0.ensureIndex({gender:1})
+
+
+createIndexes([{},{}...])
+       功能： 同时创建多个索引
+       参数： 数组中填写多个索引项即可
+
+       e.g.  同时创建age_-1  gender_-1两个索引
+       db.class0.createIndexes([{age:-1},{gender:-1}])

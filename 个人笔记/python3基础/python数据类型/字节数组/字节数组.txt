@@ -1,0 +1,29 @@
+
+字节数组 bytearray
+  可变的字节序列
+
+构造函数
+  bytearray()   创建空的字节数组
+  bytearray(整数可迭代对象)
+  bytearray(整数n)
+  bytearray(字符串, encoding='utf-8')
+    (以上参数规则同字节串的规则, 返回类型为bytearray)
+运算:
+  + += * *=
+  < <= > >= == !=
+  in / not in 
+  索引 / 切片
+    注: 字节数组支持索引赋值和切片赋值,规则同列表的索引和
+        切片赋值
+  示例:
+    ba = bytearray([65, 32, 67, 100, 69])
+    ba[1] = 66
+    ba[3] = 68
+
+
+字节数组的方法:
+  B.clear() 清空
+  B.append(n)  追加
+  B.remove(value)
+  ....
+

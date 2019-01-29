@@ -1,0 +1,16 @@
+
+
+
+对象转字符串函数的使用
+  repr(x)  返回一个符合Python语法规则且能代表此对象的表
+          达式字符串
+      通常:
+        eval(repr(obj)) == obj  为True
+  str(x)  返回一个代表对象的字符串(这个字符串通常是给我阅读的)
+
+  示例:
+    s = "I'm a Teacher"
+    sr = repr(s)
+    ss = str(s)
+    print(sr)
+    print(ss)

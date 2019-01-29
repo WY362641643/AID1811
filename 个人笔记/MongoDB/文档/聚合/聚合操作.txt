@@ -1,0 +1,76 @@
+
+
+聚合操作
+
+    对文档数据进行整理筛选统计
+
+db.collection.aggregate()
+    功能： 完成聚合操作
+    参数： 聚合条件，需要配合聚合操作符
+
+    聚合操作符
+
+
+$group  分组聚合 往往需要配合一定的统计操作符完成
+
+       统计求和： $sum
+
+       e.g. 按照性别分组，获取每组人数
+       db.class0.aggregate(
+            {$group:{_id:'$sex',num:{$sum:1}}}
+            )
+
+$group
+
+   统计求和 ： $sum
+   统计平均数： $avg
+       e.g.  按性别分组，求平均年龄
+       db.class0.aggregate(
+        {$group:{_id:'$sex',avg:{$avg:'$age'}}}
+        )
+
+   求最大值： $max
+       e.g.  按性别分组，求每组最大年龄
+       db.class0.aggregate(
+        {$group:{_id:'$sex',max:{$max:'$age'}}}
+        )
+
+   求最小值： $min
+   求第一个数： $first
+   求最后一个数： $last
+
+
+$project ： 用于格式化显示文档内容
+
+    * 值的写法同find的field参数
+
+    e.g. 按照指定域名显示
+    db.class0.aggregate(
+        {$project:{_id:0,Name:'$name',Age:'$age'}}
+        )
+
+
+$match : 筛选数据
+
+    * match值写法与find的 query参数相同
+
+    e.g. 筛选年龄大于20的文档
+     db.class0.aggregate({$match:{age:{$gt:20}}})
+
+
+$limit  显示前几条文档
+
+     e.g.  显示前3条文档
+     db.class0.aggregate({$limit:3})
+
+
+$skip  跳过前几条文档
+
+     e.g.  跳过前3条显示后面的
+      db.class0.aggregate({$skip:3})
+
+
+$sort  对所选的域排序显示
+
+     e.g.  按照年龄排序显示
+     db.class0.aggregate({$sort:{age:1}})

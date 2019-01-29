@@ -1,0 +1,55 @@
+
+
+逻辑操作符
+
+表示逻辑与
+    1. 在query文档中逗号隔开的多个键值对即表示与关系
+
+        e.g. 年龄18 并且 性别为女
+             db.class0.find(
+                {age:18,sex:'w'},{_id:0}
+                )
+
+    2. $and 表示逻辑与
+
+        e.g. 年龄大于17 并且性别为女
+         db.class0.find(
+            {$and:[{age:{$gt:17}},{sex:'w'}]},{_id:0}
+            )
+
+
+逻辑或  $or
+
+    e.g. 年龄小于18或者性别为女
+	    db.class0.find(
+	        {$or:[{age:{$lt:18}},{sex:'w'}]},{_id:0}
+	        )
+
+
+逻辑非  $not
+
+   e.g.  年龄不大于17
+	db.class0.find({age:{$not:{$gt:17}}},{_id:0})
+
+
+
+逻辑既不也不  $nor	   --> not (A or B)
+
+   e.g.  年龄既不小于17，性别也不为女
+	db.class0.find(
+	    {$nor:[{age:{$lt:17}},{sex:'w'}]},{_id:0}
+	    )
+
+
+条件混合
+    年龄（大于18 或者小于17）并且性别为男的
+	 db.class0.find(
+	    {$or:[{age:{$gt:18}},{age:{$lt:17}}],sex:'m'},
+	    {_id:0})
+
+
+	年龄大于等于17的男生，或者 姓名叫Lily
+	 db.class0.find(
+	    {$or:[{age:{$gte:17},sex:'m'},{name:'Lily'}]},
+	    {_id:0})
+

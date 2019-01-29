@@ -1,0 +1,37 @@
+from multiprocessing import pool
+
+pool = pool(processes)
+　　功能： 创建进程池对象
+   参数：　进程池中进程数量，默认根据系统自动判定
+
+pool.apply_async(func,args,kwds)
+　 功能：使用进程池中的进程执行函数事件
+　　参数：　func 要执行的函数
+        　args 元组　给func位置传参
+          kwds 字典  给func键值传参
+    返回值：函数事件对象，通过.get()方法
+        可以获取func返回值
+
+pool.apply(func,args,kwds)
+　 功能：使用进程池中的进程执行函数事件
+　　参数：　func 要执行的函数
+        　args 元组　给func位置传参
+          kwds 字典  给func键值传参
+
+pool.close()
+    功能：关闭进程池，不能再添加新的进程函数
+
+poll,join()
+    功能：回收进程池
+
+＊进程池事件func一定在进程池创建之前声明
+
+pool.map(func,iter)
+    功能：将要做的事件加入进程池执行
+    参数：
+        func 要执行的函数
+        iter 迭代对象
+
+    返回值：函数返回列表
+
+

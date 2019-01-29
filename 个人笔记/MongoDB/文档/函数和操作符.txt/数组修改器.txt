@@ -1,0 +1,77 @@
+
+数组修改器
+
+$ push : 向数组中添加一项
+
+    e.g.向数组中增加一项86
+        db.class2.updateOne(
+            {name:'小亮'},{$push:{score:86}}
+            )
+
+
+$ pushAll: 向数组中增加多项
+
+    e.g.  向数组中增加两项 5,10
+        db.class2.updateOne(
+            {name:'小红'},{$pushAll:{score:[5,10]}}
+            )
+
+
+$pull : 从数组中删除某一个值
+
+    e.g.  删除小红score域中的5
+        db.class2.update(
+            {name:'小红'},{$pull:{score:5}}
+            )
+
+
+$pullAll : 同时删除数组中多个值
+
+    e.g.  同时删除数组中的88和10
+        db.class2.update(
+            {name:'小红'},{$pullAll:{score:[88,10]}}
+            )
+
+
+$pop : 从数组中弹出一项
+
+    e.g. 删除小明score中最后一项 （1表示最后一项，-1表示第一项）
+         db.class2.update(
+            {name:'小明'},{$pop:{score:1}}
+            )
+
+
+$addToSet: 向数组中添加一项，但是不能添加已有的内容
+
+    e.g.  向数组中添加81，如果已经存在则无法添加
+         db.class2.update(
+            {name:'小明'},{$addToSet:{score:81}}
+            )
+
+
+$each : 对多个值进行逐一操作
+
+   e.g.  同时添加90,10
+        db.class2.update(
+            {name:'小红'},
+            {$push:{score:{$each:[90,10]}}}
+            )
+
+
+$position: 指定值的插入位置，配合each
+
+    e.g.  向数组1号位置插入5
+        db.class2.update(
+            {name:'小明'},
+            {$push:{score:{$each:[5],$position:1}}}
+            )
+
+
+$sort : 对数组排序，搭配each使用
+
+    e.g. 对小明score排序，1升序-1降序
+    db.class2.update(
+        {name:'小明'},
+        {$push:{score:{$each:[],$sort:1}}}
+        )
+

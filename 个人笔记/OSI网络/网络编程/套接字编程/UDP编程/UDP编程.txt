@@ -1,0 +1,50 @@
+
+基于UDP套接字的网络编程
+
+服务端　
+　 创建字节套 -->  绑定地址　-->  收发消息　 -->　 关闭
+    socket  -->  bind()  --> recvfrom/sendto --> close
+
+客户端
+　　穿件字节套  -->  收发消息  -->  关闭
+   secoket   -->  recvfrom/sendto --> close
+
+服务端
+
+
+    1. 创建数据报套接字
+        sockfd = socket(AF_INET,SOCK_DGRAM)
+
+    2. 绑定地址
+        sockfd.bind(addr)
+
+    3. 收发消息
+        data,addr = sockfd.recvfrom(buffersize)
+            功能: 接收数据报消息
+            参数：一次最多接收消息的大小 （字节）
+            返回值： data  接收到的内容
+                    addr  消息发送者的地址
+        
+        n = sockfd.sendto(data,addr)
+            功能：发送数据报消息
+            参数：data 要发送的消息 bytes
+                addr 发送消息的目标地址
+            返回： 发送的字节数
+
+    4. 关闭套接字
+    sockfd.close()
+
+客户端
+    1. 创建数据报套接字
+    2. 收发消息
+    3. 关闭套接字
+
+cookie
+sys.argv : 接收命令行参数
+* 将命令行参数以字符串形式收集为一个列表
+
+
+补充函数：
+sendall(data)
+功能参数同send
+返回值： 发送成功返回None，失败产生异常

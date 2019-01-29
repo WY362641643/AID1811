@@ -1,0 +1,5 @@
+一元运算符的重载
+  方法名                     运算符和表达式     说明
+ __neg__(self)                 -self         负号
+ __pos__(self)                 +self         正号
+ __invert__(self)              ~self         取反

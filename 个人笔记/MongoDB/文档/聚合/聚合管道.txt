@@ -1,0 +1,31 @@
+
+聚合管道
+    指将多个聚合操作合并到一起，
+    即上一个聚合的结果交给下一个聚合继续操作，
+    最终完成一个较复杂的功能
+
+aggregate([{聚合1},{聚合2}...])
+
+    e.g.  显示年纪最小三位同学，不显示_id
+        db.class0.aggregate([
+            {$sort:{age:1}},
+            {$project:{_id:0}},
+            {$limit:3}
+            ])
+
+
+    1. 将所有男生按照年龄排序，不显示_id
+
+       db.class0.aggregate([
+         {$match:{gender:'m'}},
+         {$sort:{age:1}},
+         {$project:{_id:0}}
+         ])
+
+
+    2. 统计一下班级中有无重名同学
+
+       db.class0.aggregate([
+            {$group:{_id:"$name",num:{$sum:1}}},
+            {$match:{num:{$gt:1}}}
+            ])

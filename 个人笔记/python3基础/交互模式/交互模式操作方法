@@ -1,0 +1,119 @@
+
+1.进入交互模式
+  $ python3
+  >>>
+
+
+2.退出交互模式
+  >>>quit()   exit()   ctrl+d
+python的注释：
+　　　python的注释是以＃开头，直至结尾
+
+
+3.查看当前作用域内的所有变量
+　　　>>> help("__main__")
+   退出键 q 
+
+
+4.Linux　命令
+  目录和文件相关的命令:
+    pwd 命令， 列出当前的工作目录
+    ls 命令  列出相当文件夹的文件夹或文件（默认为工作目录)
+    cd 命令  切换当前的工作目录
+    mkdir   创建文件夹
+    rmdir   删除空的文件夹
+    touch   创建空文件或更新文件的修改时间
+    rm      删除文件夹或文件
+
+
+5.UNIX/Linux 目录树
+  /  根目录
+  路径的分隔符:  /  (斜杠)
+
+  路径: 
+    文件所对应的地址的字符串
+    绝对路径和相对路径
+  绝对路径
+    /home
+  相对路径（不以/开头的为相对路径）
+    . 当前目录
+    .. 上一级目录
+    ~  用户主目录(家目录)
+
+
+6.命帮助文档：
+    --help 选项
+    man 命令
+
+
+7.用于终端的快捷键:
+  tab 键   自动补全
+  上/下键   翻出历史命令
+  ctrl + L  清空屏幕
+  ctrl + D  退出终端
+  ctrl + shift + C  复制
+  ctrl + shift + V  粘帖
+
+
+8.通配符:
+  *  匹配 0个，1个，多个字符
+  ?  匹配 1个字符
+
+
+9.文件操作相关的命令:
+  cp 复制文件
+  mv  移动文件或更名
+  find   根据命字查找文件
+     find 目录 -name 文件名
+  grep   查找文件里相应的内存是否存在
+  gzip   压缩文件
+  gunzip  解压缩文件
+  tar     将文件或文件夹打包或解包
+     tar -czvf 包名.tar.gz 文件夹名
+     tar -xzvf 包名.tar.gz
+
+
+9.用户权限操作相关的命令:
+  sudo 命令
+     sudo 命令名 [选项] [参数]  # 用root 权限来执行命令
+     sudo -i 切换到 root 用户
+  exit 命令
+     退出登陆
+
+
+10.ASCII编码表
+    Linux 查看方式:
+      $ man ascii
+
+  常用ASCII编码:
+    字符    十进制      十六进制
+    '0'     48          0x30
+    'A'     65          0x41
+    'a'     97          0x61
+
+
+
+
+第一个Python程序
+1. 编写 xxxx.py文件
+   $ code xxxx.py
+2. 执行python程序
+   $ python3 xxxx.py
+      ^         ^
+      |         |
+    解释执行器  被解释的文件
+
+3. 执行python程序方法2
+  1) 修改xxxx.py 在第一的行写入
+    #! /usr/bin/python3
+  2) 为xxxx.py 添加执行属性
+   $ chmod +x xxxx.py
+   注: chmod 命令用来添加和修改文件的权限
+  3) 执行:
+   $ ./xxxx.py
+
+常用的程序文件后缀:
+  .py     python语言源文件
+  .c      C语言源文件后缀
+  .cpp/.cxx/.cc/.C  C++语言
+  .java    Java语言源文件

@@ -1,0 +1,64 @@
+
+
+数据处理函数
+
+distinct(field)
+    功能： 获取某个集合值的范围
+    db.collection.distinct(field)
+
+    e.g. 获取class0中age域的值
+         db.class0.distinct('age')
+
+
+pretty()
+    功能: 将find结果格式化显示
+
+
+limit(n)
+    功能： 显示find结果的前n条文档
+
+    e.g.  显示查找结果的前5条
+    db.class0.find({},{_id:0}).limit(5)
+
+
+skip(n)
+    功能： 跳过前n条文档，显示后面的内容
+
+    e.g.  跳过前5条文档，显示后面内容
+    db.class0.find({},{_id:0}).skip(5)
+
+
+count（）
+    功能： 对查找结果统计计数
+
+    e.g. 统计有多少年来大于17的文档
+    db.class0.find({age:{$gt:17}}).count()
+
+
+sort({field:1/-1})
+    功能：对查找文档按照某个域的值排序
+    参数：表示要排序的域
+
+    e.g. 对查找文档按年龄升序排序（1表示升序-1表示降序）
+    db.class0.find({},{_id:0}).sort({age:1})
+
+    复合排序：对多个域进行排序，当第一排序项相同时，
+            参考第二排序项排序
+
+    e.g.  年龄相同时，按照name排序
+    db.class0.find({},{_id:0}).sort({age:1,name:1})
+
+
+ 函数的连续调用
+
+        * 当一个函数的返回结果仍然是文档集合，
+            可以继续调用函数
+
+	e.g. 查找年龄最大三名同学文档信息
+	db.class0.find({},{_id:0})
+	    .sort({age:-1}).limit(3)
+
+        * 可以对文档集合通过序列号直接选择
+
+        e.g. 获取查找结果第二项
+	     db.class0.find({},{_id:0})[1]

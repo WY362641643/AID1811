@@ -1,0 +1,6 @@
+
+2. 模块的__file__属性
+     用于绑定模块的路径
+     如:
+       import mymod
+       print(mymod.__file__) #/home/tarena/../mymod.py

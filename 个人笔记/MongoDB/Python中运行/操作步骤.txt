@@ -1,0 +1,30 @@
+
+
+python 模块  --》 pymongo 第三方模块
+
+    安装： sudo pip3 install  pymongo
+
+    操作步骤：
+1. 创建mongodb数据库连接对象
+
+	 conn = pymongo.MongoClient('localhost',27017)
+
+
+2. 创建数据库操作对象
+
+     db = conn.stu
+     db = conn['stu']
+
+
+3. 生成集合对象
+
+	 myset = db.class0
+	 myset = db['class0']
+
+
+4. 通过集合对象操作数据库
+
+
+5. 关闭数据库连接
+
+     conn.close()

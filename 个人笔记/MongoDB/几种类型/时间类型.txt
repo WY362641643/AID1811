@@ -1,0 +1,63 @@
+时间类型
+
+获取当前时间：
+
+
+    1. new Date() 自动生成当前时间
+
+        e.g.
+            db.class1.insertOne(
+              {book:'Python入门',date:new Date()}
+              )
+            { "book" : "Python入门",
+              "data" : ISODate("2019-01-25T06:11:56.182Z")
+               }
+
+
+	2. ISODate() 自动获取当前时间
+
+	e.g.
+	    db.class1.insertOne(
+	      {book:'Python精通',date:ISODate()}
+	      )
+	    { "book" : "Python精通",
+	      "data" : ISODate("2019-01-27T05:48:24.810Z")
+	      }
+
+
+	3. Date()  获取系统当前时间
+
+        e.g.
+	db.class1.insertOne(
+	    {book:'Python放弃',date:Date()}
+	    )
+    { "book" : "Python放弃",
+      "data" : "Sun Jan 27 2019 13:49:40 GMT+0800 (CST)"
+       }
+    存储任意时间
+
+
+ISODate()
+	功能： 将指定的时间字符串转为Mongodb时间存储
+	参数： 指定时间
+	       “2019-01-01 12:12:12”
+	       “20190101 11:11:11”
+	       “20190101”
+
+	e.g.
+        db.class1.insertOne(
+            {book:'Python之美',
+            date:ISODate("2018-11-20 20:58:30")}
+            )
+
+
+时间戳
+
+    valueOf()
+    功能： 将ISO date转换为时间戳
+
+    e.g.  记录1970.1.1 00:00:00到现在多少毫秒
+    db.class1.insertOne(
+        {book:'Python涅磐',date:ISODate().valueOf()}
+        )
+

@@ -1,0 +1,53 @@
+
+
+继承(inheritance)
+  什么是继承?
+    继承是指从已有的类中派生出新类,新类具有原类的数据属性和行为
+    并能扩展新的行为
+
+名词:
+  继承/派生
+    派生指是从源类衍生出新的类
+为什么继承/派生
+  继承的目的是延续旧类的功能
+  派生的目地是在旧类的基础上添加新的功能
+作用:
+  用继承派生机制,可以将一些共有功能加在基类中,实现代码的共享
+  在不改变基类的代码的基础上改变原有类的功能
+名词:
+  基类(base class)/ 超类(super class)/父类(father class)
+  派生类(derived class) / 子类 (child class)
+
+
+单继承
+  单继承是指一个派生类由一个基类衍生出来的
+
+  语法:
+    class 类名(基类名):
+        语句块 
+  示例见:
+    inherit.py
+    
+
+继承说明:
+  python3中任何类都直接或间接的继承自object类
+  object类是一切类的基类
+
+
+
+思考:
+  list类里提供了几个方法,但没有提供带有一个参数的头部添加数据
+  的方法,试题能否在不改变原列表类 list 的基础上,创建一个新的
+  类MyList类,新类继承原类全部的功能,并添加一个 
+    insert_head(n) 的方法
+
+  如:
+    class MyList(list):
+        def insert_head(self, n):
+            ...
+    myl = MyList(range(3, 6))
+    print(myl)  # [3, 4, 5]
+    myl.insert_head(2)
+    print(myl)  # [2, 3, 4, 5]
+    myl.append(6)
+    print(myl)  # [2, 3, 4, 5, 6]

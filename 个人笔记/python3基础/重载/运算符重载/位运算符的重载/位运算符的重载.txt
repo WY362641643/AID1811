@@ -1,0 +1,8 @@
+
+位运算符的重载
+  方法名                     运算符和表达式     说明
+ __and__(self, rhs)           self &  rhs     位与
+ __or__(self, rhs)            self |  rhs     位或
+ __xor__(self, rhs)           self ^  rhs     位异或
+ __lshift__(self, rhs)        self << rhs     左移
+ __rshift__(self, rhs)        self >> rhs     右移

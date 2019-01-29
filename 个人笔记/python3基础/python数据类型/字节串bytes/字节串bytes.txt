@@ -1,0 +1,70 @@
+
+字节串(也叫字节序列) bytes 
+  作用:
+    存储以字节为单位的数据
+    字节串是不可变的字节序列
+
+字节(byte)
+  字节是由8个位(bit) 组成的存储单元
+  字节是0~255之间的整数,用来表示一个字节的取值
+
+创建空字节串的字面值:
+  b''
+  b""
+  b''''''
+  b""""""
+
+创建非空字节串的字面值:
+  B = b'ABCD'
+  B = b"ABCD"
+  B = b'\x41\x42'
+
+字节串的构造函数 bytes
+  bytes()   生成一个空的字节串 等同于 b''
+  bytes(整数可迭代对象)  用可迭代对象生成一个字节串
+  bytes(整数n)     生成n个值为0的字节串
+  bytes(字符串, encoding='utf-8')  用字符串的转换编码
+          生成一个字节串
+
+示例:
+   B = bytes()  # B=b''
+   B = bytes([65, 66, 67, 68])  # B=b'ABCD'
+   B = bytes(5)    # B = b'\x00\x00\x00\x00\x00'
+   B = bytes("hello", 'utf-8')  # B=b'hello'
+   B = bytes("ABC中文", 'utf-8')  # B=
+
+bytes 的运算:
+  +   +=   *   *=  
+  <  <=  >  >=  ==  != 
+  in  /  not in
+  索引/切片
+
+  示例:
+    B = b"ABC123"
+    b'12' in B  # True
+    65 in B     # True
+    print(B[2])  # 67
+    print(B[0::2])  # b'AC2'
+
+能用于字节串和字节数组的函数:
+  len(x), max(x), min(x), sum(x), any(x), all(x)
+
+bytes 与 str 的区别:
+  bytes 存储字节(0~255的整数)
+  str 存储UNICODE字符(0~65535~0x10FFFF的整数)
+
+bytes 与 str 转换
+         编码(encode)
+  str ----------------> bytes
+      b = s.encode(encoding='utf-8')
+    
+         解码(decode)
+  bytes --------------> str
+      s = b.decode(encoding='utf-8')
+
+示例:
+   s = 'ABC中文'
+   b = s.encode()   # 用utf-8编码规则转为字节串
+   s2 = b.decode()  # 用utf-8编码规则解码为字符串
+   print(s == s2)  # True
+

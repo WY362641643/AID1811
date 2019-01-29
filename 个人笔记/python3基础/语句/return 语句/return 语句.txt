@@ -1,0 +1,45 @@
+
+return 语句
+  语法:
+    return [表达式]
+    注:[]代表内部内容可以省略
+  作用:
+    用于函数中,结束当前函数的执行,返回到调用该函数的地方,同时
+    返回一个对象的引用关系
+  说明:
+    return 语句后跟的表达式可以省略,省略后相当于return None
+    如果函数内部没有return 语句,则函数执行完最后一条语句后
+    返回None(相当于在最后加了一条return None语句)
+  示例见:
+    return.py
+  
+
+练习:
+  1. 写一个函数 mymax, 实现返回两个数的最大值:
+    如:
+      def mymax(a, b):
+          ....  # 此处自己实现
+
+      print(mymax(100, 200))  # 200
+      print(mymax("ABC", "ABCD"))  # ABCD
+
+  2. 写一个函数myadd,实现给出两个数,返回这两个数的和
+    如:
+      def myadd(x, y):
+          ...
+      a = int(input("请输入第一个数: "))
+      b = int(input("请输入第二个数: "))
+      print(a, '+', b, '的和是', myadd(a, b))
+  3. 写一个函数 input_number
+    def input_number():
+        ...  # 此处自己实现
+    此函数用来获取用户循环输入的整数.当输入负数时结束输入
+    将用户输入的数字形成列表的形式返回,再用内建函数max, min,
+    sum,求用户输入的最大值,最小值及和
+    L = input_number()
+    print("用户输入的最大值是:", max(L))
+    print("用户输入的最小值是:", min(L))
+    print("用户输入的全部数的和是:", sum(L))
+
+
+

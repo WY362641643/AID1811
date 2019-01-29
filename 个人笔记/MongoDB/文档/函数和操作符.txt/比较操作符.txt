@@ -1,0 +1,39 @@
+
+
+比较操作符
+
+$eq  等于 =
+    e.g.  年龄等于18
+          db.class0.find({age:{$eq:18}},{_id:0})
+
+
+$lt  小于 <
+    e.g.  年龄小于Jack （字符串可以比较大小）
+    db.class0.find({name:{$lt:'Jack'}},{_id:0})
+
+
+$gt  大于 >
+    e.g.  大于16小于19的 （表达区间关系）
+    db.class0.find({age:{$gt:16,$lt:19}},{_id:0})
+
+
+$lte  小于等于  <=
+     查找年龄小于等于18岁
+     db.class0.find({age:{$lte:18}},{_id:0})
+
+
+$gte  大于等于  >=
+
+$ne   不等于    !=
+
+
+$in  包含
+    e.g. 查找年龄在数组范围内的文档
+    db.class0.find({age:{$in:[18,19,20]}},{_id:0})
+
+
+$nin  不包含
+
+    e.g. 查找年龄不包含在数组中的
+    db.class0.find({age:{$nin:[18,19,20]}},{_id:0})
+

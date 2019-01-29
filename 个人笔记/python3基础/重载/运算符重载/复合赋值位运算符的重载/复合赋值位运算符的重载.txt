@@ -1,0 +1,9 @@
+
+
+复合赋值位运算符的重载
+  方法名                     运算符和表达式     说明
+ __iand__(self, rhs)           self &=  rhs     位与
+ __ior__(self, rhs)            self |=  rhs     位或
+ __ixor__(self, rhs)           self ^=  rhs     位异或
+ __ilshift__(self, rhs)        self <<= rhs     左移
+ __irshift__(self, rhs)        self >>= rhs     右移

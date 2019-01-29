@@ -1,0 +1,38 @@
+
+
+
+汉字编码:
+  问题:
+    十个汉字点多少个字节
+两种(常见):
+  国标系列:
+    GB18030(二字节或四字节编码, 27533个汉字)
+      GBK(二字节编码,约 21003个汉字)
+        GB2312(二字节编码,约7千汉字) (A1A1~FEFE))
+    (Windows常用)
+  国际标准:  UNICODE16  <---> UTF-8
+    (Linux/ Unix / Mac OS X / IOS / Android 常用)
+  
+UTF-8 (8-bit Unicode Transformation Format)
+  UNICODE   <----->  UTF-8
+  0x0000-0x007F    1字节编码(与ASCII兼容)
+  0x0080-0x07FF    2字节编码
+  0x07FF-0xFFFF    3字节编码(汉字落在此区)
+  0x10000-之后      4,5,6字节编码(UNICODE32部分)
+
+python 的编码(encode)字符串:
+  'gb2312'
+  'gbk'
+  'gb18030'
+  'utf-8'
+  'ascii'
+  ...
+
+编码注释:
+  在python源文件的第一行或第二行写入的如下内容是编码注释
+  编码注释的作用是告诉解释执行器当前文件的编码类型是什么
+  如:
+    # -*- coding:gbk -*-
+    # 告诉python解释执行器,当前文件的编码是:gbk
+    或
+    # -*- coding:utf-8 -*-

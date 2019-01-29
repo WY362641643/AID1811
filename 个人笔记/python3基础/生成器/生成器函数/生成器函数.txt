@@ -1,0 +1,36 @@
+
+生成器函数:
+  含有yield 语句的函数是生成器函数,此函数被调用将返回一个生成
+  器对象
+  yield 翻译为产生(或生成)
+
+yield 语句
+  语法:
+    yield 表达式
+  说明:
+    yield 用于def 函数中,目的是将此函数作为生成器函数使用
+    yield 用来生成数据,供迭代器的next(it) 函数使用
+  示例见:
+    myyield.py
+
+生成器函数说明:
+  生成器函数调用将返回一个生成器对象,生成器对象是一个可迭代对象
+  生成器对象通常是一次性的,通常不可重复使用
+  在生成器函数调用return 会触发一个StopIteration异常(即生
+    成数据结束)
+
+  生成器的示例:
+    myinteger.py
+
+练习:
+  写一个生成器函数 myeven(start, stop)  # 用来生成从
+    start 开始到stop结束区间内的一系列偶数(不包含stop)
+  如 :
+    def myeven(start, stop):
+        ....  # 此处自己实现
+
+    evens = list(myeven(10, 20))
+    print(evens)  # [10, 12, 14, 16, 18]
+    for x in myeven(21, 30):
+        print(x)   # 打印22, 24, 26, 28
+    

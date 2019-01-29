@@ -1,0 +1,32 @@
+
+
+多继承 multiple inheritance
+  语法:
+    class 类名(基类名1, 基类名2, ....):
+        ...
+  说明:
+    1. 一个子类同时继承自多个父类,父类中的方法可以同时被继承下来
+    2. 如果两个父类中有同名的方法,而在子类中又没有覆盖此方法,调
+       用结果难以确定
+  示例见:
+    multiple_inherit.py
+    
+多继承的问题
+  标识符冲突的问题
+    要谨慎使用多继承
+  示例:
+    multi_inherit2.py
+
+多继承的 MRO(Method Resolution Order) 问题
+  类的 __mro__属性
+    此属性用于记录当前类的方法的查找顺序
+  
+钻石继承(又名棱形继承)
+    A
+   / \
+  B   C
+   \ /
+    D
+示例见:
+  diamond_inherit.py
+

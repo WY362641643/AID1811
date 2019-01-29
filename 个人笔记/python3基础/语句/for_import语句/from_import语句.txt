@@ -1,0 +1,24 @@
+
+from import 语句
+  语法:
+    from 模块名 import 属性名1[as 属性新名1]
+            [, 属性名2 [as 属性新名2], ...]
+  作用:
+    将某模块内的一个或多个属性导入到当前模块的作用域
+  示例:
+    from math import factorial as fac
+    from math import sin, cos, e
+    from math import sqrt, pi
+    print(sin(pi/2))
+    print(fac(5))  # 120
+
+
+from import *语句
+  语法:
+    from 模块名 import *
+  作用:
+    将某模块的所有属性导入到当前模块
+  示例:
+    from math import *
+    print(sin(pi))
+    print(factorial(10))
